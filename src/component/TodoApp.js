@@ -20,6 +20,11 @@ const TodoApp = () => {
     }
   };
 
+  const deletetask = (e, id) => {
+    e.preventDefault();
+    setTaskList(tasklist.filter(t => t.id !== id));
+  };
+
   return (
     <div className='todo'>
       <input 
@@ -29,6 +34,23 @@ const TodoApp = () => {
       onChange = {(e) => handleChange(e)} 
       placeholder='Add task here' />
       <button className='add-btn' onClick={AddTask}>Add task</button>
+      {tasklist !== [] ?
+      <ul>
+        {tasklist.map(t =>
+          <li className='listitem'>
+            {t.value}
+            <button className='completed'>Completed</button>
+            <button 
+              className='delete' 
+              onClick={e => deletetask(e, t.id)}>
+                Delete
+            </button>
+          </li>
+          )}
+        
+      </ul>
+
+      : null}
     </div>
   );
 };
