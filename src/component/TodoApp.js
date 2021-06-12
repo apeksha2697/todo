@@ -1,5 +1,6 @@
 import './TodoApp.css';
 import {useState} from 'react';
+
 const TodoApp = () => {
   const [task, setTask] = useState("");
   const [tasklist, setTaskList] = useState([]);
@@ -25,6 +26,17 @@ const TodoApp = () => {
     setTaskList(tasklist.filter(t => t.id !== id));
   };
 
+  const completedtask = (e, id) => {
+    e.preventDefault();
+    const element = tasklist.findIndex(ele => ele.id === id);
+    const newTaskList = [...tasklist];
+    newTaskList[element] = {
+      ...newTaskList[element],
+      isCompleted: true
+    }
+    setTaskList(newTaskList);
+  };
+
   return (
     <div className='todo'>
       <input 
@@ -37,9 +49,9 @@ const TodoApp = () => {
       {tasklist !== [] ?
       <ul>
         {tasklist.map(t =>
-          <li className='listitem'>
+          <li className={t.isCompleted ? 'crossText': 'listitem'}>
             {t.value}
-            <button className='completed'>Completed</button>
+            <button className='completed' onClick={e => completedtask(e, t.id)}>Completed</button>
             <button 
               className='delete' 
               onClick={e => deletetask(e, t.id)}>
