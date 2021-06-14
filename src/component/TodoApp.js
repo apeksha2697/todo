@@ -51,13 +51,13 @@ const TodoApp = () => {
         {tasklist.map(t =>
           <li className={t.isCompleted ? 'crossText': 'listitem'}>
             {t.value}
-            <button className='completed' onClick={e => completedtask(e, t.id)}>Completed</button>
             { t.isCompleted?(
             <button 
               className='delete' 
               onClick={e => deletetask(e, t.id)}>
                 Delete
-            </button>) : null}
+            </button>) : 
+            <button className='completed' onClick={e => completedtask(e, t.id)}>Completed</button> }
           </li>
           )}
       </ul>
