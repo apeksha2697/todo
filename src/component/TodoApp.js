@@ -59,9 +59,7 @@ const TodoApp = () => {
             </button>
           </li>
           )}
-        
       </ul>
-
       : null}
     </div>
   );
