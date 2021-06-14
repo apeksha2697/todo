@@ -1,16 +1,18 @@
- import NavigationBar from './component/Navigationbar';
-import Card from './component/Card';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import User from './component/User';
+import Card from './component/Card';
 
 const App = () => {
   return (
-    <div className='main'>
-      <NavigationBar />
+    <div className='app'>
       <Switch>
         <Route path='/' exact>
-          <Redirect to= '/home' />
+          <Redirect to= '/login' />
         </Route>
-        <Route path='/home' exact>
+        <Route path='/login'>
+          <User />
+        </Route>
+        <Route path='/home'>
           <Card />
         </Route>
       </Switch>
