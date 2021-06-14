@@ -4,7 +4,7 @@ import Card from './component/Card';
 
 const App = () => {
   return (
-    <div className='app'>
+    <div className='main'>
       <Switch>
         <Route path='/' exact>
           <Redirect to= '/login' />
@@ -14,6 +14,9 @@ const App = () => {
         </Route>
         <Route path='/home'>
           <Card />
+        </Route>
+        <Route path="*">
+          <div>404 Not found</div>
         </Route>
       </Switch>
     </div>
