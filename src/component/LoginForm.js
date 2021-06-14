@@ -24,7 +24,7 @@ const LoginForm = ({Login, error}) => {
 			</div>
 			<div className = "form-group">
 				<label htmlFor='password'>Password:</label>
-				<input type='text' name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+				<input type='password' name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
 			</div>
 			<input type="submit" value="Login" />
 		</div>
