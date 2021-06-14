@@ -34,7 +34,7 @@
   border-radius: 30%;
   color: black;
   font-size: 1.2rem;
-  background-color: yellow;
+  background-color: rgb(183, 0, 255);
   border: none;
   margin-left: 10px;
   cursor: pointer;
@@ -71,6 +71,7 @@
   padding: 4px 10px 4px 10px;
   border-radius: 20px;
   border: none;
+  font-size: 15px;
   cursor: pointer;
   background-color: red;
   color: white;
@@ -83,6 +84,7 @@
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  font-size: 15px;
   background-color: green;
   margin-left: 10px;
   color: white;
