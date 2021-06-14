@@ -1,20 +1,20 @@
-import './App.css';
-import TodoApp from './component/TodoApp';
+ import NavigationBar from './component/Navigationbar';
+import Card from './component/Card';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
 const App = () => {
   return (
-    <Switch>
-      <Route path='/' exact>
-        <Redirect path = '/home' />
-      </Route>
-      <Route path='/home' exact>
-        <div className="App">
-          <span className='title'>Todo list</span>
-          <TodoApp />
-        </div>
-      </Route>
-    </Switch>
+    <div className='main'>
+      <NavigationBar />
+      <Switch>
+        <Route path='/' exact>
+          <Redirect to= '/home' />
+        </Route>
+        <Route path='/home' exact>
+          <Card />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
