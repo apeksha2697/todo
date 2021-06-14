@@ -52,11 +52,12 @@ const TodoApp = () => {
           <li className={t.isCompleted ? 'crossText': 'listitem'}>
             {t.value}
             <button className='completed' onClick={e => completedtask(e, t.id)}>Completed</button>
+            { t.isCompleted?(
             <button 
               className='delete' 
               onClick={e => deletetask(e, t.id)}>
                 Delete
-            </button>
+            </button>) : null}
           </li>
           )}
       </ul>
