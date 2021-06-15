@@ -1,25 +1,37 @@
-import {Route, Switch, Redirect} from 'react-router-dom';
-import User from './component/User';
-import Card from './component/Card';
+import Home from './components/pages/Home';
+import Login from './components/pages/Login';
+import SignUp from './components/pages/SignUp';
+import Profile from './components/pages/Profile';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { useState } from 'react';
+import ProtectedRoutes from './ProtectedRoutes';
 
-const App = () => {
+function App() {
+  const [isLoggedin, setisLoggedin] = useState(false);
+
+  const loginHandler = (event) => {
+    if (event) {
+      setisLoggedin(true);
+    } else {
+      setisLoggedin(false);
+    }
+  };
   return (
-    <div className='main'>
+    <BrowserRouter>
       <Switch>
-        <Route path='/' exact>
-          <Redirect to= '/login' />
+        <Route exact path="/" >
+          <SignUp />
         </Route>
         <Route path='/login'>
-          <User />
+          <Login isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
         </Route>
-        <Route path='/home'>
-          <Card />
+        <Route path='/signup'>
+          <SignUp isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
         </Route>
-        <Route path="*">
-          <div>404 Not found</div>
-        </Route>
+        <ProtectedRoutes exact path='/profile' component={Profile} isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
+        <ProtectedRoutes exact path='/home' component={Home} isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
       </Switch>
-    </div>
+    </BrowserRouter>
   );
 }
 
