@@ -1,7 +1,10 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
+  const logoutHandler = () => {
+    props.setisLoggedin(false);
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Navbar.Brand href="#home">Todo App</Navbar.Brand>
@@ -15,7 +18,12 @@ const NavigationBar = () => {
       <Nav.Link href="#deets"></Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
       </Nav.Link>
-        <Link to='/profile' >Profile</Link>
+        {props.isLoggedin? 
+        (<Link to='/profile' >Profile</Link>) 
+        : null }
+        {props.isLoggedin? 
+        (<button onClick={logoutHandler} >Logout</button>) 
+        : null }
     </Nav>
   </Navbar.Collapse>
 </Navbar>
