@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Segment, Card } from "semantic-ui-react";
+import styles from "./Login.module.css";
 
 const Login = (props) => {
   let history = useHistory();
@@ -66,7 +67,9 @@ const Login = (props) => {
         <Segment inverted style={{ marginTop: "20px" }}>
           <h1 style={{ textAlign: "center", color: "Black" }}>LOGIN</h1>
         </Segment>
-        <div>
+        <div  className={`${styles.control} ${
+            emailIsValid === false ? styles.invalid : ""
+          }`}>
           <label>Email address</label>
           <input
             type="email"
@@ -77,8 +80,9 @@ const Login = (props) => {
             onBlur={validateEmailHandler}
           />
         </div>
-
-        <div>
+        <div className={`${styles.control} ${
+            passwordIsValid === false ? styles.invalid : ""
+          }`}>
           <label>Password</label>
           <input
             type="password"
