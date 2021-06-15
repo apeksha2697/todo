@@ -103,7 +103,7 @@ const Login = (props) => {
             className="forgot-password text-right"
             style={{ color: "white", textAlign: "center" }}
           >
-            Forgot <Link to="/signup">password?</Link>
+            <Link to="/signup">Signup</Link>
           </p>
         </Segment>
       </form>
