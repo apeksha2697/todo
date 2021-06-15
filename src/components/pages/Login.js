@@ -61,7 +61,7 @@ const Login = (props) => {
     setenteredPassword("");
   };
   return (
-    <Card  style={{padding: "20px"}}>
+    <Card  style={{padding: "20px", margin: "4cm"}}>
       <form onSubmit={loginSubmitHandler}>
         <Segment inverted style={{ marginTop: "20px" }}>
           <h1 style={{ textAlign: "center", color: "Black" }}>LOGIN</h1>
