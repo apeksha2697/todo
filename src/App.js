@@ -5,7 +5,8 @@ import Profile from './components/pages/Profile';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { useState } from 'react';
 import ProtectedRoutes from './ProtectedRoutes';
-
+import NotFound from './components/NotFound';
+import NavigationBar from './components/pages/Navigationbar';
 function App() {
   const [isLoggedin, setisLoggedin] = useState(false);
 
@@ -18,6 +19,7 @@ function App() {
   };
   return (
     <BrowserRouter>
+      <NavigationBar isLoggedin={isLoggedin} setisLoggedin={loginHandler}  />
       <Switch>
         <Route exact path="/" >
           <SignUp />
@@ -30,6 +32,9 @@ function App() {
         </Route>
         <ProtectedRoutes exact path='/profile' component={Profile} isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
         <ProtectedRoutes exact path='/home' component={Home} isLoggedin={isLoggedin} setisLoggedin={loginHandler} />
+        <Route path="*">
+          <NotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
