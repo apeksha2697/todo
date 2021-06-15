@@ -1,7 +1,6 @@
 import React from 'react'
 import Task from './Task';
 import './Home.css';
-import Navigationbar from './Navigationbar';
 import { Card } from "semantic-ui-react";
 
 function Home() {
