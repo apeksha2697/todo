@@ -51,7 +51,7 @@ const Signup = () => {
   };
 
   return (
-    <Card style={{padding: "20px"}}>
+    <Card style={{padding: "20px", margin: "125px"}}>
       <form onSubmit={signupSubmitHandler}>
         <Segment inverted style={{ marginTop: "20px" }}>
           <h1 style={{ textAlign: "center", color: "Black" }}>SignUp</h1>
