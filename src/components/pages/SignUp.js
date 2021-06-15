@@ -26,7 +26,6 @@ const Signup = () => {
     event.preventDefault();
 
     if (
-      register.password.trim().length > 6 &&
       register.email.includes("@") &&
       register.email.includes(".com")
     ) {
@@ -43,10 +42,7 @@ const Signup = () => {
       history.push("/login");
       alert("successfull");
     } else {
-      alert(`Please check the following :- 
-      1) Email is valid 
-      2) Passwords at both fields should match
-      3) Age should above 8 Years`);
+      alert(`enter a valid email id`);
     }
   };
 

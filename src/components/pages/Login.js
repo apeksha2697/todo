@@ -15,8 +15,7 @@ const Login = (props) => {
     const identifier = setTimeout(() => {
       setFormIsValid(
         enteredEmail.includes("@") &&
-          enteredEmail.includes(".com") &&
-          enteredPassword.trim().length > 6
+          enteredEmail.includes(".com")
       );
     }, 500);
 
@@ -54,9 +53,7 @@ const Login = (props) => {
       props.setisLoggedin(true);
       history.push("/home");
     } else {
-      alert(`check login data 
-      OR 
-      New User-Please signup first`);
+      alert(`incorrect login credentials`);
     }
     setenteredEmail("");
     setenteredPassword("");
